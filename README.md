@@ -58,7 +58,7 @@ Citation
   year      = {2026},
   month     = {March},
   publisher = {GitHub},
-  url       = {https://github.com/123456yy384/BaGua-Architecture}
+  url       = {https://github.com/123456yy384/bagua-Architecture}
 }
 
 Contact
