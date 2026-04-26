@@ -1,124 +1,156 @@
-# 八卦架构 (BaGua Architecture)
+# BaGua Architecture (八卦架构)
 
-**极性驱动的全动态阻抗神经网络 | 非Transformer底层架构**
+**Polarity-Driven Fully Dynamic Impedance Neural Network | Non-Transformer Base Architecture**
 
-作者：阳恩硕 | 17岁 | 职校在读 | 独立研究者  
-联系：Oyes13619690046@outlook.com
+Author: Yang Enshuo (阳恩硕) | 17 | Independent Researcher  
+Contact: Oyes13619690046@outlook.com
 
----
-
-## 这是什么
-
-八卦架构是一个从底层重新设计的神经网络架构，不基于Transformer，不使用固定注意力机制。
-
-核心思想来自易经八卦的阴阳极性相吸相斥机制——八个卦象分区通过实时计算的极性向量，动态决定彼此之间的信息流阻抗。每次前向传播，网络拓扑完全重新生长，没有任何固定连接路径。
-
-现在所有主流大模型——GPT、Claude、Gemini、Llama——底层全部基于Transformer的固定拓扑注意力机制。八卦架构是一次从底层出发的重新设计。
+[HuggingFace](https://huggingface.co/kasuenshuo/BaGua-Architecture-0.5B-Base) | [GitHub](https://github.com/123456yy384/bagua-Architecture)
 
 ---
 
-## 九个核心模块
+## What Is This
 
-| 模块 | 功能 |
-|------|------|
-| 动态八卦阵 | 八个卦象分区并行处理，阻抗矩阵动态调控信息流 |
-| 卦象对冲 | 实时生成极性向量，异极低阻通行，同极高阻隔离 |
-| 淘汰审核 | 微观：评估每个卦象头的输出质量，惩罚模糊预测 |
-| 淘汰低效机制 | 低价值卦象输出直接归零，动态稀疏计算 |
-| 算力缓冲区 | 门控平滑路径剪枝产生的信号跳变，保证训练稳定 |
-| 去中心化自运算 | 全局存活率追踪，低存活时自动增压防止过度淘汰 |
-| 左耳进右耳出 | 序列内记忆积累，序列间彻底清零，天然防跨序列过拟合 |
-| 九州编码 | 三级层级位置感知，公式实时计算，零显存开销 |
-| **任务自我感知** | **首token识别任务类型，23个预设场景，动态切换单向/双向信息流** |
+BaGua Architecture is a neural network architecture redesigned from the ground up — not built on Transformers, and does not use fixed attention mechanisms.
+
+The core idea draws from the polarity principles of the I Ching (易经八卦): eight trigram partitions interact through real-time computed polarity vectors that dynamically determine information flow impedance between them. On every forward pass, the network topology is completely regenerated — there are no fixed connection paths.
+
+Every mainstream LLM today — GPT, Claude, Gemini, Llama — is fundamentally built on Transformer-based fixed-topology attention. BaGua Architecture is a ground-up rethinking.
 
 ---
 
-## 与Transformer的本质区别
+## Nine Core Modules
 
-| 对比项 | Transformer | 八卦架构 |
-|--------|-------------|---------|
-| 网络拓扑 | 固定，每次相同 | 动态，每次从零重建 |
-| 注意力机制 | 所有头独立并行 | 八卦间极性驱动互动 |
-| 过拟合防御 | 依赖dropout等外部手段 | 架构内部天然防御 |
-| 任务适配 | 生成和理解需不同模型 | 任务自我感知自动切换 |
-| 记忆机制 | KV Cache跨序列累积 | 左耳进右耳出序列间清零 |
-| 位置编码 | 统一外挂 | 神经元级别三级层级感知 |
+| Module | Function |
+|--------|---------|
+| Dynamic BaGua Array | Eight trigram partitions process in parallel; impedance matrix dynamically regulates information flow |
+| Hexagram Polarity | Generates polarity vectors in real-time; opposite polarities = low-resistance passage; same polarity = high-resistance isolation |
+| Elimination Audit | Micro-level: evaluates output quality of each trigram head, penalizes vague predictions |
+| Low-Efficiency Elimination | Low-value trigram outputs are directly zeroed out for dynamic sparse computation |
+| Compute Buffer | Gate-controlled smoothing of signal jumps caused by path pruning, ensuring training stability |
+| Decentralized Self-Computation | Global survival rate tracking; auto-boosts when survival drops to prevent over-pruning |
+| Left Ear In, Right Ear Out | Memory accumulates within a sequence, fully resets between sequences — natural defense against cross-sequence overfitting |
+| Nine Provinces Encoding | Three-level hierarchical position awareness, computed via formulas in real-time, zero memory overhead |
+| **Task Self-Awareness** | **Identifies task type from the first token across 23 preset scenarios; dynamically switches between unidirectional/bidirectional information flow** |
 
 ---
 
-## 实验结果
+## Essential Differences from Transformer
 
-### 实验一：概念验证（随机数据）
+| Aspect | Transformer | BaGua Architecture |
+|--------|------------|--------------------|
+| Network Topology | Fixed, identical every pass | Dynamic, rebuilt from scratch every pass |
+| Attention Mechanism | All heads operate independently | Polarity-driven interaction between trigrams |
+| Overfitting Defense | Relies on dropout and external methods | Native architectural defense |
+| Task Adaptation | Separate models for generation vs understanding | Task self-awareness auto-switches |
+| Memory Mechanism | KV Cache accumulates across sequences | Left-Ear-In-Right-Ear-Out clears between sequences |
+| Position Encoding | Unified external plugin | Neuron-level three-tier hierarchical awareness |
 
-| 模型 | 参数量 | Loss |
-|------|--------|------|
-| 八卦架构 | **0.468M** | **6.3201** |
-| 标准MHA | 0.784M | 6.3304 |
+---
 
-用40%更少参数达到更低Loss。
+## Experimental Results
 
-### 实验二：SST-2情感分类
+### Experiment 1: Concept Validation (Random Data)
 
-| 模型 | 准确率 | 最终Loss | 过拟合 |
-|------|--------|---------|--------|
-| 八卦架构（11M） | 73.4% | **稳定0.51** | **无** |
-| BERT-like（11M） | 79.7% | 从0.43涨到1.35 | **严重** |
+| Model | Parameters | Loss |
+|-------|-----------|------|
+| BaGua Architecture | **0.468M** | **6.3201** |
+| Standard MHA | 0.784M | 6.3304 |
 
-关键发现：BERT-like从第8轮开始严重过拟合，八卦架构全程稳定。
+Achieved lower loss with **40% fewer parameters**.
 
-### 实验三：AG News新闻主题分类（20轮）
+### Experiment 2: SST-2 Sentiment Classification
 
-| 模型 | 准确率 | 最终Loss |
-|------|--------|---------|
-| 八卦架构 | 89.54% | **0.31** |
+| Model | Accuracy | Final Loss | Overfitting |
+|-------|---------|-----------|-------------|
+| BaGua Architecture (11M) | 73.4% | **Stable 0.51** | **None** |
+| BERT-like (11M) | 79.7% | 0.43 → 1.35 | **Severe** |
+
+Key finding: BERT-like severely overfits from epoch 8; BaGua remains stable throughout.
+
+### Experiment 3: AG News Classification (20 Epochs)
+
+| Model | Accuracy | Final Loss |
+|-------|---------|-----------|
+| BaGua Architecture | 89.54% | **0.31** |
 | BERT-like | 91.75% | 0.43 |
 
-准确率差2.21个点（BERT使用了30亿词预训练嵌入，八卦架构从随机初始化），但Loss低28%，全程无过拟合。
+Accuracy is 2.21 points behind (BERT used 3B-word pretrained embeddings; BaGua started from random initialization), but loss is **28% lower** with zero overfitting throughout.
 
-### 实验四：LLM预训练验证
+### Experiment 4: LLM Pretraining — 258M Version
 
-- 架构：258M参数，12层，dim=768
-- 数据：OpenWebText（英文40GB）+ 中文维基（2GB）
-- 硬件：Tesla V100-SXM2-32GB
-- 进展：PPL从116054（随机初始化）降至319（11000步）
-- 能力：能生成连贯英文文本，中文处于早期训练阶段
+- Architecture: 258M params, 12 layers, dim=768
+- Data: OpenWebText (40GB English) + Chinese Wikipedia (2GB)
+- Hardware: Tesla V100-SXM2-32GB
+- Progress: PPL dropped from ~116,054 (random init) to ~319 (11,000 steps)
+- Capability: Generates coherent English text; Chinese in early training stages
+
+### Experiment 5: LLM Pretraining — 0.5B Version (Latest)
+
+- Architecture: 504M params, 24 layers, dim=1024
+- Data: OpenWebText (40GB English) + Chinese Wikipedia (1.7GB)
+- Hardware: Dual RTX 4090D (cloud) + Tesla V100-SXM2-32GB (local)
+- Steps: ~170,000
+- Best Validation PPL: ~106
+- [HuggingFace Model](https://huggingface.co/kasuenshuo/BaGua-Architecture-0.5B-Base)
 
 ---
 
-## 快速开始
+## Quick Start
 
 ```bash
 pip install torch transformers numpy tqdm matplotlib
 
-# 分类实验
+# Classification experiments
 python bagua_multitask.py
 
-# LLM训练
-python bagua_preprocess.py      # 预处理数据
-python bagua_llm_train_v4.py    # 训练
-python bagua_chat.py            # 对话测试
+# LLM training
+python bagua_preprocess.py      # Data preprocessing
+python bagua_llm_train_v4.py    # Training
+python bagua_chat.py            # Chat inference
+
+# 0.5B Hugging Face model inference
+# See https://huggingface.co/kasuenshuo/BaGua-Architecture-0.5B-Base
 ```
 
 ---
 
-## 后续计划
+## Roadmap
 
-1. **宏观淘汰审核**：句子级别输出质量评估，低置信度句子自动重生成
-2. **扩充中文数据**：目标10GB以上，让模型真正用中文思考
-3. **指令微调**：从续写升级为能听懂人话的对话模型
-4. **代码编译验证**：生成+验证+修复闭环，保证输出代码能运行
-5. **更多训练轮次**：目标PPL降到100以下
+1. **Macro Elimination Audit**: Sentence-level output quality evaluation; low-confidence sentences auto-regenerate
+2. **Expanded Chinese Data**: Target 10GB+ to enable genuine Chinese reasoning
+3. **Instruction Fine-tuning**: Upgrade from text continuation to conversational model
+4. **Code Compilation Verification**: Generate + verify + fix loop to guarantee runnable output
+5. **Deeper Training**: Target PPL below 100 (0.5B: currently ~106)
+6. **Scaling**: 1.5B+ parameter versions
 
 ---
 
-## 诚实说明
+## Honest Assessment
 
-- 独立研究，没有机构背书，没有导师
-- 所有实验数据均为真实结果，未做修改
-- 分类准确率低于BERT 2-3个点，但抗过拟合能力明显更强
-- LLM版本处于早期训练阶段
+- Independent research — no institutional backing, no supervisor
+- All experimental data is real and unmodified
+- Classification accuracy 2–3 points below BERT, but anti-overfitting capability is demonstrably stronger
+- LLM at early training stage (0.5B: PPL ~106; fluent conversation typically requires PPL < 50)
+- Not instruction-tuned — model currently does text continuation, not Q&A
+- Chinese output quality is lower due to data imbalance (40GB English vs 1.7GB Chinese)
+
+---
+
+## Citation
+
+```bibtex
+@misc{yang2026bagua,
+  title   = {BaGua Architecture: Polarity-Driven Dynamic Impedance Neural Network},
+  author  = {Yang, Enshuo},
+  year    = {2026},
+  url     = {https://github.com/123456yy384/bagua-Architecture}
+}
+```
 
 ---
 
 *"始于AI，不止于AI。"*  
-*八卦架构，从中国古代哲学出发，走向计算体系的未来。*
+*"Started from AI, going beyond AI."*
+
+*BaGua Architecture — from ancient Chinese philosophy, toward the future of computing.*
