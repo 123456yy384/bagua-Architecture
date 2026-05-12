@@ -1,5 +1,5 @@
 """
-八卦架构 (BaGua Architecture) — LLM 训练脚本 V3
+八卦架构 (BaGua Architecture) — LLM 训练脚本 V4
 ================================================
 作者：阳恩硕 (Yang Enshuo)
 数据：预处理二进制token文件（需先运行 bagua_preprocess.py）
