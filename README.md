@@ -75,7 +75,6 @@ Key finding: BERT-like severely overfits from epoch 8; BaGua remains stable thro
 | BaGua Architecture | 89.54% | **0.31** |
 | BERT-like | 91.75% | 0.43 |
 
-Accuracy is 2.21 points behind (BERT used 3B-word pretrained embeddings; BaGua started from random initialization), but loss is **28% lower** with zero overfitting throughout.
 
 ### Experiment 4: LLM Pretraining — 258M Version
 
