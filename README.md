@@ -33,6 +33,8 @@ Every mainstream LLM today — GPT, Claude, Gemini, Llama — is fundamentally b
 | Nine Provinces Encoding | Three-level hierarchical position awareness, computed via formulas in real-time, zero memory overhead |
 | **Task Self-Awareness** | **Identifies task type from the first token across 23 preset scenarios; dynamically switches between unidirectional/bidirectional information flow** |
 
+![avatar](bagua.png)
+
 ---
 
 ## Essential Differences from Transformer
