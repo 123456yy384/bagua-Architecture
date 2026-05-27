@@ -94,6 +94,8 @@ Text Coherence (20 Epochs)
 
 ![avatar](Figure_1new(RTX4060).png)
 
+![avatar](Trainingcommandlinescreenshot(4060).png)
+
 ### Experiment 4: LLM Pretraining — 258M Version
 
 - Architecture: 258M params, 12 layers, dim=768
