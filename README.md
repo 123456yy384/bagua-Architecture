@@ -98,10 +98,6 @@ bagua_multitask.py
 - Best Validation PPL: ~106
 - [HuggingFace Model](https://huggingface.co/kasuenshuo/BaGua-Architecture-0.5B-Base)
 
-Cross-Domain Validation
-CTR Recommendation (TAAC × KDD 2026, AUC 0.80)
-OS Kernel Scheduling (BaGua OS v0.1.0, 16/16 tests passed, Rust)
-
 ---
 
 ## Quick Start
