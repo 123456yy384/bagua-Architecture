@@ -98,6 +98,9 @@ bagua_multitask.py
 - Best Validation PPL: ~106
 - [HuggingFace Model](https://huggingface.co/kasuenshuo/BaGua-Architecture-0.5B-Base)
 
+### Cross-Domain Validation
+| Operating System Scheduling | BaGua OS v0.1.0 (Rust, x86_64 ) | 16/16 unit tests passed | [bagua os](https://github.com/123456yy384/bagua-OS)
+
 ---
 
 ## Quick Start
