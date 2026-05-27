@@ -92,9 +92,13 @@ Text Coherence (20 Epochs)
 | BaGua Architecture | 54.93% | **0.7582** |
 | BERT-like | 56.10% | 1.6007 |
 
+![avatar](Trainingcommandlinescreenshot(4060).png)
+
 ![avatar](Figure_1new(RTX4060).png)
 
-![avatar](Trainingcommandlinescreenshot(4060).png)
+NEW Script/bagua_multitask.py
+
+In addition, I also used a machine (V100) with stronger computing power to conduct a comparative experiment using the same script.
 
 ### Experiment 4: LLM Pretraining — 258M Version
 
