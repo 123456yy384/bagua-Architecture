@@ -71,7 +71,6 @@ Key finding: BERT-like severely overfits from epoch 8; BaGua remains stable thro
 ![avatar](Figure_1.png)
 bagua_multitask.py
 
-
 ### Experiment 3: AG News Classification (20 Epochs)
 
 | Model | Accuracy | Final Loss |
@@ -79,6 +78,12 @@ bagua_multitask.py
 | BaGua Architecture | 89.54% | **0.31** |
 | BERT-like | 91.75% | 0.43 |
 
+Re-ran classification experiments with updated script (fixed matplotlib font rendering). Results are consistent with original findings — anti-overfitting property confirmed across both runs.
+
+| Model | Accuracy | Final Loss |
+|-------|---------|-----------|
+| BaGua Architecture | 89.88% | **0.3146** |
+| BERT-like | 91.61% | 0.5976 |
 
 ### Experiment 4: LLM Pretraining — 258M Version
 
