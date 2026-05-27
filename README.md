@@ -85,6 +85,15 @@ Re-ran classification experiments with updated script (fixed matplotlib font ren
 | BaGua Architecture | 89.88% | **0.3146** |
 | BERT-like | 91.61% | 0.5976 |
 
+Text Coherence (20 Epochs)
+
+| Model | Accuracy | Final Loss |
+|-------|---------|-----------|
+| BaGua Architecture | 54.93% | **0.7582** |
+| BERT-like | 56.10% | 1.6007 |
+
+![avatar](Figure_1new(RTX4060).png)
+
 ### Experiment 4: LLM Pretraining — 258M Version
 
 - Architecture: 258M params, 12 layers, dim=768
