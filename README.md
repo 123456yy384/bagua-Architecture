@@ -78,7 +78,7 @@ bagua_multitask.py
 | BaGua Architecture | 89.54% | **0.31** |
 | BERT-like | 91.75% | 0.43 |
 
-Re-ran classification experiments with updated script (fixed matplotlib font rendering). Results are consistent with original findings — anti-overfitting property confirmed across both runs.
+Re-ran classification experiments with updated script (fixed matplotlib font rendering). 
 
 | Model | Accuracy | Final Loss |
 |-------|---------|-----------|
