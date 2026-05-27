@@ -69,7 +69,6 @@ Achieved lower loss with **40.31% fewer parameters**.
 Key finding: BERT-like severely overfits from epoch 8; BaGua remains stable throughout.
 
 ![avatar](Figure_1.png)
-This image was automatically generated after the script completed the task. There may be some encoding issues Please forgive us
 bagua_multitask.py
 
 
