@@ -77,7 +77,8 @@ Key finding: BERT-like severely overfits from epoch 8; BaGua remains stable thro
 | BERT-like | 91.75% | 0.43 |
 
 ![avatar](Figure_1.png)
-bagua_multitask.py
+
+Script used: bagua_multitask.py
 
 Re-ran classification experiments with updated script (fixed matplotlib font rendering). 
 
@@ -99,7 +100,7 @@ Text Coherence
 
 ![avatar](Figure_1new(RTX4060).png)
 
-NEW Script/bagua_multitask.py
+Script used: NEW Script/bagua_multitask.py
 
 In addition, I also used a machine (V100) with stronger computing power to conduct a comparative experiment using the same script.
 
@@ -120,6 +121,8 @@ Text Coherence
 ![avatar](Trainingcommandlinescreenshot(V100).png)
 
 ![avatar](Figure_1new(V100).png)
+
+Script used: NEW Script/bagua_multitask.py
 
 ### Experiment 4: LLM Pretraining — 258M Version
 
