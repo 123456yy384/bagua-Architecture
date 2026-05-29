@@ -68,8 +68,6 @@ Achieved lower loss with **40.31% fewer parameters**.
 
 Key finding: BERT-like severely overfits from epoch 8; BaGua remains stable throughout.
 
-![avatar](Figure_1.png)
-bagua_multitask.py
 
 ### Experiment 3: AG News Classification (20 Epochs)
 
@@ -78,14 +76,19 @@ bagua_multitask.py
 | BaGua Architecture | 89.54% | **0.31** |
 | BERT-like | 91.75% | 0.43 |
 
+![avatar](Figure_1.png)
+bagua_multitask.py
+
 Re-ran classification experiments with updated script (fixed matplotlib font rendering). 
+
+AG News Classification
 
 | Model | Accuracy | Final Loss |
 |-------|---------|-----------|
 | BaGua Architecture | 89.88% | **0.3146** |
 | BERT-like | 91.61% | 0.5976 |
 
-Text Coherence (20 Epochs)
+Text Coherence
 
 | Model | Accuracy | Final Loss |
 |-------|---------|-----------|
@@ -99,6 +102,24 @@ Text Coherence (20 Epochs)
 NEW Script/bagua_multitask.py
 
 In addition, I also used a machine (V100) with stronger computing power to conduct a comparative experiment using the same script.
+
+AG News Classification
+
+| Model | Accuracy | Final Loss |
+|-------|---------|-----------|
+| BaGua Architecture | 89.55% | **0.3281** |
+| BERT-like | 91.45% | 0.5929 |
+
+Text Coherence
+
+| Model | Accuracy | Final Loss |
+|-------|---------|-----------|
+| BaGua Architecture | 55.27% | **0.7623** |
+| BERT-like | 58.43% | 1.5994 |
+
+![avatar](Trainingcommandlinescreenshot(V100).png)
+
+![avatar](Figure_1new(V100).png)
 
 ### Experiment 4: LLM Pretraining — 258M Version
 
